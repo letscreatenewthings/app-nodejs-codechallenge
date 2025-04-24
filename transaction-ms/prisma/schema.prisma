@@ -1,0 +1,26 @@
+generator client {
+  provider = "prisma-client-js"
+  binaryTargets = ["native", "debian-openssl-3.0.x"]
+ }
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Transaction {
+  id            String   @id @unique @default(uuid())
+  idDebit       String   
+  idCredit      String   
+  typeId        Int
+  value         Float
+  status        Status   @default(PENDING)
+  creationDate  DateTime @default(now())
+  auditDate     DateTime @default(now())
+}
+
+enum Status {
+   PENDING
+   ACCEPTED
+   REJECTED
+ }

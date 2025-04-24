@@ -1,0 +1,29 @@
+{
+  "name": "transaction-ms",
+  "version": "1.0.0",
+  "description": "",
+  "author": "",
+  "main": "dist/app.js",
+  "scripts": {
+    "build": "tsc -p .",
+    "db:deploy": "npx prisma migrate deploy",
+    "dev": "nodemon src/app.ts",
+    "start": "node dist/app.js",
+    "migrate": "prisma migrate dev"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.6.0",
+    "express": "^5.1.0",
+    "kafkajs": "^2.2.4"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.1",
+    "@types/node": "^22.14.1",
+    "prisma": "^6.6.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
